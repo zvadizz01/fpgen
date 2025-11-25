@@ -5209,9 +5209,9 @@ function ProcessFingerprintInternal(show_my_fingerprint, custom_pc_server_key, p
       document.getElementById("status").textContent = "✅ Отпечаток отправлен!";
     } else {
       document.getElementById("status").textContent = "❌ Ошибка: " + o.status;
-    } // ← ✅ закрываем `if (o.status === 200)`
-  } // ← ✅ закрываем `if (o.readyState === DONE)`
-}, // ← запятая — часть синтаксиса ServerPoster.Post = { ..., o.send(i) }
+    }
+  }
+},
 o.send(i)
     }
 
