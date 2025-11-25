@@ -5191,29 +5191,56 @@ function ProcessFingerprintInternal(show_my_fingerprint, custom_pc_server_key, p
         return i ? i[2] ? decodeURIComponent(i[2].replace(/\+/g, " ")) : "" : null
     }
 
-    function ServerPoster() {
-        var a = document.location.protocol + "//fingerprints.bablosoft.com/",
-            e = "boolean" == typeof show_my_fingerprint && show_my_fingerprint;
-        e ? a += "savemy?key=" + getParameterByName("key") : GetCustomPCServerKey().length > 0 ? a = document.location.protocol + "//customfingerprints.bablosoft.com/save?publickey=" + GetCustomPCServerKey() : a += "save?showresult=true", this.Post = function(i) {
-            var o = new XMLHttpRequest;
-            o.open("POST", a, !0), o.setRequestHeader("Content-type", "application/json; charset=utf-8"), o.setRequestHeader("Upgrade-Insecure-Requests", "1"), o.setRequestHeader("Accept-Datetime", "Thu, 31 May 2007 20:35:00 GMT"), o.setRequestHeader("Authorization", "QWxhZGRpbjpvcGVuIHNlc2FtZQ=="), o.setRequestHeader("Cache-Control", "no-cache"), o.setRequestHeader("If-Match", "737060cd8c284d8af7ad3082f209582d"), o.setRequestHeader("If-Modified-Since", "Sat, 29 Oct 1994 19:43:31 GMT"), o.setRequestHeader("If-None-Match", "737060cd8c284d8af7ad3082f209582d"), o.setRequestHeader("If-Range", "737060cd8c284d8af7ad3082f209582d"), o.setRequestHeader("If-Unmodified-Since", "Sat, 29 Oct 1994 19:43:31 GMT"), o.setRequestHeader("Max-Forwards", "10"), o.setRequestHeader("Pragma", "no-cache"), o.setRequestHeader("Range", "bytes=500-999"), o.setRequestHeader("X-Requested-With", "XMLHttpRequest"), o.setRequestHeader("X-HTTP-Method-Override", "DELETE"), o.setRequestHeader("X-Csrf-Token", "i8XNjC4b8KVok4uw5RftR38Wgp2BFwql"), o.setRequestHeader("X-Request-ID", "f058ebd6-02f7-4d3f-942e-904344e8cde5"), o.onreadystatechange = function() {
-  if (o.readyState === XMLHttpRequest.DONE) {
-    if (o.status === 200) {
-      if (e) {
-        window.FingerPrintSwitcherFingerprint && window.FingerPrintSwitcherFingerprint(o.responseText);
-      } else {
-        var pc = new PerfectCanvas(o.responseText, GetCustomPCServerKey());
-        localStorage.setItem("FP", o.responseText);
-        pc.Start();
+function ServerPoster() {
+  var a = document.location.protocol + "//fingerprints.bablosoft.com/",
+      e = "boolean" == typeof show_my_fingerprint && show_my_fingerprint;
+  e
+    ? a += "savemy?key=" + getParameterByName("key")
+    : GetCustomPCServerKey().length > 0
+      ? a = document.location.protocol + "//customfingerprints.bablosoft.com/save?publickey=" + GetCustomPCServerKey()
+      : a += "save?showresult=true";
+
+  this.Post = function(i) {
+    var o = new XMLHttpRequest();
+    o.open("POST", a, true);
+    o.setRequestHeader("Content-type", "application/json; charset=utf-8");
+    o.setRequestHeader("Upgrade-Insecure-Requests", "1");
+    o.setRequestHeader("Accept-Datetime", "Thu, 31 May 2007 20:35:00 GMT");
+    o.setRequestHeader("Authorization", "QWxhZGRpbjpvcGVuIHNlc2FtZQ==");
+    o.setRequestHeader("Cache-Control", "no-cache");
+    o.setRequestHeader("If-Match", "737060cd8c284d8af7ad3082f209582d");
+    o.setRequestHeader("If-Modified-Since", "Sat, 29 Oct 1994 19:43:31 GMT");
+    o.setRequestHeader("If-None-Match", "737060cd8c284d8af7ad3082f209582d");
+    o.setRequestHeader("If-Range", "737060cd8c284d8af7ad3082f209582d");
+    o.setRequestHeader("If-Unmodified-Since", "Sat, 29 Oct 1994 19:43:31 GMT");
+    o.setRequestHeader("Max-Forwards", "10");
+    o.setRequestHeader("Pragma", "no-cache");
+    o.setRequestHeader("Range", "bytes=500-999");
+    o.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+    o.setRequestHeader("X-HTTP-Method-Override", "DELETE");
+    o.setRequestHeader("X-Csrf-Token", "i8XNjC4b8KVok4uw5RftR38Wgp2BFwql");
+    o.setRequestHeader("X-Request-ID", "f058ebd6-02f7-4d3f-942e-904344e8cde5");
+
+    o.onreadystatechange = function() {
+      if (o.readyState === XMLHttpRequest.DONE) {
+        if (o.status === 200) {
+          if (e) {
+            window.FingerPrintSwitcherFingerprint && window.FingerPrintSwitcherFingerprint(o.responseText);
+          } else {
+            var pc = new PerfectCanvas(o.responseText, GetCustomPCServerKey());
+            localStorage.setItem("FP", o.responseText);
+            pc.Start();
+          }
+          document.getElementById("status").textContent = "✅ Отпечаток отправлен!";
+        } else {
+          document.getElementById("status").textContent = "❌ Ошибка: " + o.status;
+        }
       }
-      document.getElementById("status").textContent = "✅ Отпечаток отправлен!";
-    } else {
-      document.getElementById("status").textContent = "❌ Ошибка: " + o.status;
-     }
-    }
+    };
+
+    o.send(i);
   };
-  o.send(i);
-};
+}
     }
 
     function LastTimePosted() {
