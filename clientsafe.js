@@ -5204,7 +5204,7 @@ function ProcessFingerprintInternal(show_my_fingerprint, custom_pc_server_key, p
                         localStorage.setItem("FP", o.responseText), a.Start()
                     }
             }, o.send(i)
-        }, document.getElementById("status").value = "Good!";
+        }, document.getElementById("status").value = "Отпечаток успешно отправлен!";
     }
 
     function LastTimePosted() {
@@ -7222,4 +7222,5 @@ function ProcessFingerprintInternal(show_my_fingerprint, custom_pc_server_key, p
         var _PerfectCanvas = new PerfectCanvas(localStorage.getItem("FP"), GetCustomPCServerKey());
         _PerfectCanvas.Start()
     }
+
 }
