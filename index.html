@@ -24,14 +24,15 @@
   transform: translate(-50%, -50%);
   font-family: system-ui, sans-serif;
   font-size: 24px;
-  color: #555;
-  background: rgba(255, 255, 255, 0.8); /* Полупрозрачный белый фон */
-  padding: 20px 40px; /* Увеличили горизонтальный отступ для ширины */
+  font-weight: 600; /* Усиливаем жирность текста */
+  color: #333; /* Более тёмный цвет для лучшей читаемости */
+  background: rgba(255, 255, 255, 0.3); /* Сделали фон ещё прозрачнее — 30% вместо 80% */
+  padding: 20px 40px;
   border-radius: 12px;
   box-shadow: 0 4px 16px rgba(0,0,0,0.1);
   text-align: center;
-  min-width: 300px; /* Минимальная ширина */
-  backdrop-filter: blur(5px); /* Размытие фона (если поддерживается) */
+  min-width: 300px;
+  backdrop-filter: blur(5px); /* Размытие фона за элементом (если поддерживается) */
 ">♻️ Сбор отпечатка...</div>
 
 <button id="clearButton" onclick="localStorage.clear();" style="
@@ -63,6 +64,7 @@
         })
     </script>
 </html>
+
 
 
 
