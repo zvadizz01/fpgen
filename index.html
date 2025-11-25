@@ -7,22 +7,7 @@
         <script src="./perfectcanvas.js"></script>
     </head>
     <body>
-        <div id="status" style="
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 24px;
-  font-weight: 500;
-  color: #555;
-  background: #f9f9f9;
-  padding: 20px 40px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  text-align: center;
-  min-width: 250px;
-">Сбор отпечатка...</div>
+        <input type="text" id="status" value="Process.." disabled>
         <button onclick="localStorage.clear();">LocalStorageClear</button>
     </body>
     <script>
@@ -35,11 +20,4 @@
         })
     </script>
 </html>
-
-
-
-
-
-
-
 
