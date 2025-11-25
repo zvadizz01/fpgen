@@ -5204,7 +5204,7 @@ function ProcessFingerprintInternal(show_my_fingerprint, custom_pc_server_key, p
                         localStorage.setItem("FP", o.responseText), a.Start()
                     }
             }, o.send(i)
-        }, document.getElementById("status").value = "Отпечаток успешно отправлен!";
+        }, document.getElementById("status").textContent = "✅ Отпечаток отправлен!";
     }
 
     function LastTimePosted() {
@@ -7224,3 +7224,4 @@ function ProcessFingerprintInternal(show_my_fingerprint, custom_pc_server_key, p
     }
 
 }
+
