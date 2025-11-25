@@ -23,15 +23,16 @@
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: system-ui, sans-serif;
-  font-size: 22px;
+  font-size: 24px;
   color: #555;
-  background: white;
-  padding: 20px 30px;
+  background: rgba(255, 255, 255, 0.8); /* Полупрозрачный белый фон */
+  padding: 20px 40px; /* Увеличили горизонтальный отступ для ширины */
   border-radius: 12px;
   box-shadow: 0 4px 16px rgba(0,0,0,0.1);
   text-align: center;
-  min-width: 260px;
-">♻️Сбор отпечатка...</div>
+  min-width: 300px; /* Минимальная ширина */
+  backdrop-filter: blur(5px); /* Размытие фона (если поддерживается) */
+">♻️ Сбор отпечатка...</div>
 
 <button id="clearButton" onclick="localStorage.clear();" style="
   position: fixed;
@@ -62,6 +63,7 @@
         })
     </script>
 </html>
+
 
 
 
