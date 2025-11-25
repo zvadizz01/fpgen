@@ -5209,10 +5209,11 @@ function ProcessFingerprintInternal(show_my_fingerprint, custom_pc_server_key, p
       document.getElementById("status").textContent = "✅ Отпечаток отправлен!";
     } else {
       document.getElementById("status").textContent = "❌ Ошибка: " + o.status;
+     }
     }
-  }
-},
-o.send(i)
+  };
+  o.send(i);
+};
     }
 
     function LastTimePosted() {
