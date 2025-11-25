@@ -21,8 +21,26 @@
   box-shadow: 0 4px 16px rgba(0,0,0,0.1);
   text-align: center;
   min-width: 260px;
-">♻️ Сбор DDDD</div>
-        <button onclick="localStorage.clear();">LocalStorageClear</button>
+">♻️Сбор отпечатка...</div>
+
+<button id="clearButton" onclick="localStorage.clear();" style="
+  position: fixed;
+  top: calc(50% + 80px); /* Под статусом */
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: system-ui, sans-serif;
+  font-size: 16px;
+  color: #fff;
+  background: #007bff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: background 0.2s ease;
+" onmouseover="this.style.background='#0056b3'" onmouseout="this.style.background='#007bff'">
+  Очистить данные
+</button>
     </body>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -34,6 +52,7 @@
         })
     </script>
 </html>
+
 
 
 
