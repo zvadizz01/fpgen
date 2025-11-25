@@ -5211,7 +5211,6 @@ function ProcessFingerprintInternal(show_my_fingerprint, custom_pc_server_key, p
     } else {
       // ❌ ОШИБКА
       document.getElementById("status").textContent = "❌ Ошибка: " + o.status;
-    }
   }
 },
 o.send(i)
